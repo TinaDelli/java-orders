@@ -1,5 +1,9 @@
 package com.lambdaschool.orders.repos;
 
-public interface CustomerRepository
+import com.lambdaschool.orders.model.Customer;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CustomerRepository extends CrudRepository<Customer, Long>
 {
+    Customer findByCustname(String name);
 }
