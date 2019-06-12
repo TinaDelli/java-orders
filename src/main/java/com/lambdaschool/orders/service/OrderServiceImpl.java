@@ -180,7 +180,7 @@ public class OrderServiceImpl implements OrderService
         newCustomer.setPaymentamt(customer.getPaymentamt());
         newCustomer.setOutstandingamt(customer.getOutstandingamt());
         newCustomer.setPhone(customer.getPhone());
-
+        newCustomer.setAgent(customer.getAgent());
 
         for (Order o: customer.getOrders())
         {

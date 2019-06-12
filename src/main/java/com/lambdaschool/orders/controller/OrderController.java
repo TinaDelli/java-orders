@@ -74,4 +74,13 @@ public class OrderController
         orderService.deleteCust(custcode);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @DeleteMapping(value="/agent/{agentcode}")
+    public ResponseEntity<?>deleteAgentById(
+            @PathVariable
+            long agentcode)
+    {
+        orderService.delete(agentcode);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
