@@ -1,11 +1,11 @@
 package com.lambdaschool.orders;
 
-import com.lambdaschool.orders.model.Agents;
-import com.lambdaschool.orders.model.Customers;
-import com.lambdaschool.orders.model.Orders;
-import com.lambdaschool.orders.repos.AgentsRepository;
-import com.lambdaschool.orders.repos.CustomersRepository;
-import com.lambdaschool.orders.repos.OrdersRepository;
+import com.lambdaschool.orders.model.Agent;
+import com.lambdaschool.orders.model.Customer;
+import com.lambdaschool.orders.model.Order;
+import com.lambdaschool.orders.repos.AgentRepository;
+import com.lambdaschool.orders.repos.CustomerRepository;
+import com.lambdaschool.orders.repos.OrderRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,11 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class SeedData implements CommandLineRunner
 {
-    private CustomersRepository custrepos;
-    private AgentsRepository agentrepos;
-    private OrdersRepository ordersrepos;
+    private CustomerRepository custrepos;
+    private AgentRepository agentrepos;
+    private OrderRepository ordersrepos;
 
-    public SeedData(CustomersRepository custrepos, AgentsRepository agentrepos, OrdersRepository ordersrepos)
+    public SeedData(CustomerRepository custrepos, AgentRepository agentrepos, OrderRepository ordersrepos)
     {
         this.custrepos = custrepos;
         this.agentrepos = agentrepos;
@@ -28,57 +28,57 @@ public class SeedData implements CommandLineRunner
     @Override
     public void run(String... args) throws Exception
     {
-        Agents a01 = new Agents("Ramasundar", "Bangalore", 0.15, "077-25814763", "");
-        Agents a02 = new Agents("Alex ", "London", 0.13, "075-12458969", "");
-        Agents a03 = new Agents("Alford", "New York", 0.12, "044-25874365", "");
-        Agents a04 = new Agents("Ravi Kumar", "Bangalore", 0.15, "077-45625874", "");
-        Agents a05 = new Agents("Santakumar", "Chennai", 0.14, "007-22388644", "");
-        Agents a06 = new Agents("Lucida", "San Jose", 0.12, "044-52981425", "");
-        Agents a07 = new Agents("Anderson", "Brisban", 0.13, "045-21447739", "");
-        Agents a08 = new Agents("Subbarao", "Bangalore", 0.14, "077-12346674", "");
-        Agents a09 = new Agents("Mukesh", "Mumbai", 0.11, "029-12358964", "");
-        Agents a10 = new Agents("McDen", "London", 0.15, "078-22255588", "");
-        Agents a11 = new Agents("Ivan", "Torento", 0.15, "008-22544166", "");
-        Agents a12 = new Agents("Benjamin", "Hampshair", 0.11, "008-22536178", "");
+        Agent a01 = new Agent("Ramasundar", "Bangalore", 0.15, "077-25814763", "");
+        Agent a02 = new Agent("Alex ", "London", 0.13, "075-12458969", "");
+        Agent a03 = new Agent("Alford", "New York", 0.12, "044-25874365", "");
+        Agent a04 = new Agent("Ravi Kumar", "Bangalore", 0.15, "077-45625874", "");
+        Agent a05 = new Agent("Santakumar", "Chennai", 0.14, "007-22388644", "");
+        Agent a06 = new Agent("Lucida", "San Jose", 0.12, "044-52981425", "");
+        Agent a07 = new Agent("Anderson", "Brisban", 0.13, "045-21447739", "");
+        Agent a08 = new Agent("Subbarao", "Bangalore", 0.14, "077-12346674", "");
+        Agent a09 = new Agent("Mukesh", "Mumbai", 0.11, "029-12358964", "");
+        Agent a10 = new Agent("McDen", "London", 0.15, "078-22255588", "");
+        Agent a11 = new Agent("Ivan", "Torento", 0.15, "008-22544166", "");
+        Agent a12 = new Agent("Benjamin", "Hampshair", 0.11, "008-22536178", "");
 
-        Customers c01 = new Customers("Holmes", "London", "London", "UK", "2", 6000.00, 5000.00, 7000.00, 4000.00, "BBBBBBB", a03);
-        Customers c02 = new Customers("Micheal", "New York", "New York", "USA", "2", 3000.00, 5000.00, 2000.00, 6000.00, "CCCCCCC", a08);
-        Customers c03 = new Customers("Albert", "New York", "New York", "USA", "3", 5000.00, 7000.00, 6000.00, 6000.00, "BBBBSBB", a08);
-        Customers c04 = new Customers("Ravindran", "Bangalore", "Bangalore", "India", "2", 5000.00, 7000.00, 4000.00, 8000.00, "AVAVAVA", a11);
-        Customers c05 = new Customers("Cook", "London", "London", "UK", "2", 4000.00, 9000.00, 7000.00, 6000.00, "FSDDSDF", a06);
-        Customers c06 = new Customers("Stuart", "London", "London", "UK", "1", 6000.00, 8000.00, 3000.00, 11000.00, "GFSGERS", a03);
-        Customers c07 = new Customers("Bolt", "New York", "New York", "USA", "3", 5000.00, 7000.00, 9000.00, 3000.00, "DDNRDRH", a08);
-        Customers c08 = new Customers("Fleming", "Brisban", "Brisban", "Australia", "2", 7000.00, 7000.00, 9000.00, 5000.00, "NHBGVFC", a05);
-        Customers c09 = new Customers("Jacks", "Brisban", "Brisban", "Australia", "1", 7000.00, 7000.00, 7000.00, 7000.00, "WERTGDF", a05);
-        Customers c10 = new Customers("Yearannaidu", "Chennai", "Chennai", "India", "1", 8000.00, 7000.00, 7000.00, 8000.00, "ZZZZBFV", a10);
-        Customers c11 = new Customers("Sasikant", "Mumbai", "Mumbai", "India", "1", 7000.00, 11000.00, 7000.00, 11000.00, "147-25896312", a02);
-        Customers c12 = new Customers("Ramanathan", "Chennai", "Chennai", "India", "1", 7000.00, 11000.00, 9000.00, 9000.00, "GHRDWSD", a10);
-        Customers c13 = new Customers("Avinash", "Mumbai", "Mumbai", "India", "2", 7000.00, 11000.00, 9000.00, 9000.00, "113-12345678", a02);
-        Customers c14 = new Customers("Winston", "Brisban", "Brisban", "Australia", "1", 5000.00, 8000.00, 7000.00, 6000.00, "AAAAAAA", a05);
-        Customers c15 = new Customers("Karl", "London", "London", "UK", "0", 4000.00, 6000.00, 7000.00, 3000.00, "AAAABAA", a06);
-        Customers c16 = new Customers("Shilton", "Torento", "Torento", "Canada", "1", 10000.00, 7000.00, 6000.00, 11000.00, "DDDDDDD", a04);
-        Customers c17 = new Customers("Charles", "Hampshair", "Hampshair", "UK", "3", 6000.00, 4000.00, 5000.00, 5000.00, "MMMMMMM", a09);
-        Customers c18 = new Customers("Srinivas", "Bangalore", "Bangalore", "India", "2", 8000.00, 4000.00, 3000.00, 9000.00, "AAAAAAB", a07);
-        Customers c19 = new Customers("Steven", "San Jose", "San Jose", "USA", "1", 5000.00, 7000.00, 9000.00, 3000.00, "KRFYGJK", a12);
-        Customers c20 = new Customers("Karolina", "Torento", "Torento", "Canada", "1", 7000.00, 7000.00, 9000.00, 5000.00, "HJKORED", a04);
-        Customers c21 = new Customers("Martin", "Torento", "Torento", "Canada", "2", 8000.00, 7000.00, 7000.00, 8000.00, "MJYURFD", a04);
-        Customers c22 = new Customers("Ramesh", "Mumbai", "Mumbai", "India", "3", 8000.00, 7000.00, 3000.00, 12000.00, "Phone No", a02);
-        Customers c23 = new Customers("Rangarappa", "Bangalore", "Bangalore", "India", "2", 8000.00, 11000.00, 7000.00, 12000.00, "AAAATGF", a01);
-        Customers c24 = new Customers("Venkatpati", "Bangalore", "Bangalore", "India", "2", 8000.00, 11000.00, 7000.00, 12000.00, "JRTVFDD", a07);
-        Customers c25 = new Customers("Sundariya", "Chennai", "Chennai", "India", "3", 7000.00, 11000.00, 7000.00, 11000.00, "PPHGRTS", a10);
+        Customer c01 = new Customer("Holmes", "London", "London", "UK", "2", 6000.00, 5000.00, 7000.00, 4000.00, "BBBBBBB", a03);
+        Customer c02 = new Customer("Micheal", "New York", "New York", "USA", "2", 3000.00, 5000.00, 2000.00, 6000.00, "CCCCCCC", a08);
+        Customer c03 = new Customer("Albert", "New York", "New York", "USA", "3", 5000.00, 7000.00, 6000.00, 6000.00, "BBBBSBB", a08);
+        Customer c04 = new Customer("Ravindran", "Bangalore", "Bangalore", "India", "2", 5000.00, 7000.00, 4000.00, 8000.00, "AVAVAVA", a11);
+        Customer c05 = new Customer("Cook", "London", "London", "UK", "2", 4000.00, 9000.00, 7000.00, 6000.00, "FSDDSDF", a06);
+        Customer c06 = new Customer("Stuart", "London", "London", "UK", "1", 6000.00, 8000.00, 3000.00, 11000.00, "GFSGERS", a03);
+        Customer c07 = new Customer("Bolt", "New York", "New York", "USA", "3", 5000.00, 7000.00, 9000.00, 3000.00, "DDNRDRH", a08);
+        Customer c08 = new Customer("Fleming", "Brisban", "Brisban", "Australia", "2", 7000.00, 7000.00, 9000.00, 5000.00, "NHBGVFC", a05);
+        Customer c09 = new Customer("Jacks", "Brisban", "Brisban", "Australia", "1", 7000.00, 7000.00, 7000.00, 7000.00, "WERTGDF", a05);
+        Customer c10 = new Customer("Yearannaidu", "Chennai", "Chennai", "India", "1", 8000.00, 7000.00, 7000.00, 8000.00, "ZZZZBFV", a10);
+        Customer c11 = new Customer("Sasikant", "Mumbai", "Mumbai", "India", "1", 7000.00, 11000.00, 7000.00, 11000.00, "147-25896312", a02);
+        Customer c12 = new Customer("Ramanathan", "Chennai", "Chennai", "India", "1", 7000.00, 11000.00, 9000.00, 9000.00, "GHRDWSD", a10);
+        Customer c13 = new Customer("Avinash", "Mumbai", "Mumbai", "India", "2", 7000.00, 11000.00, 9000.00, 9000.00, "113-12345678", a02);
+        Customer c14 = new Customer("Winston", "Brisban", "Brisban", "Australia", "1", 5000.00, 8000.00, 7000.00, 6000.00, "AAAAAAA", a05);
+        Customer c15 = new Customer("Karl", "London", "London", "UK", "0", 4000.00, 6000.00, 7000.00, 3000.00, "AAAABAA", a06);
+        Customer c16 = new Customer("Shilton", "Torento", "Torento", "Canada", "1", 10000.00, 7000.00, 6000.00, 11000.00, "DDDDDDD", a04);
+        Customer c17 = new Customer("Charles", "Hampshair", "Hampshair", "UK", "3", 6000.00, 4000.00, 5000.00, 5000.00, "MMMMMMM", a09);
+        Customer c18 = new Customer("Srinivas", "Bangalore", "Bangalore", "India", "2", 8000.00, 4000.00, 3000.00, 9000.00, "AAAAAAB", a07);
+        Customer c19 = new Customer("Steven", "San Jose", "San Jose", "USA", "1", 5000.00, 7000.00, 9000.00, 3000.00, "KRFYGJK", a12);
+        Customer c20 = new Customer("Karolina", "Torento", "Torento", "Canada", "1", 7000.00, 7000.00, 9000.00, 5000.00, "HJKORED", a04);
+        Customer c21 = new Customer("Martin", "Torento", "Torento", "Canada", "2", 8000.00, 7000.00, 7000.00, 8000.00, "MJYURFD", a04);
+        Customer c22 = new Customer("Ramesh", "Mumbai", "Mumbai", "India", "3", 8000.00, 7000.00, 3000.00, 12000.00, "Phone No", a02);
+        Customer c23 = new Customer("Rangarappa", "Bangalore", "Bangalore", "India", "2", 8000.00, 11000.00, 7000.00, 12000.00, "AAAATGF", a01);
+        Customer c24 = new Customer("Venkatpati", "Bangalore", "Bangalore", "India", "2", 8000.00, 11000.00, 7000.00, 12000.00, "JRTVFDD", a07);
+        Customer c25 = new Customer("Sundariya", "Chennai", "Chennai", "India", "3", 7000.00, 11000.00, 7000.00, 11000.00, "PPHGRTS", a10);
 
-        Orders o01 = new Orders(1000.00, 600.00, c13, a03, "SOD");
-        Orders o02 = new Orders(3000.00, 500.00, c19, a10, "SOD");
-        Orders o03 = new Orders(4500.00, 900.00, c07, a10, "SOD");
-        Orders o04 = new Orders(2000.00, 400.00, c16, a07, "SOD");
-        Orders o05 = new Orders(4000.00, 600.00, c22, a02, "SOD");
-        Orders o06 = new Orders(2000.00, 300.00, c12, a12, "SOD");
-        Orders o07 = new Orders(3500.00, 2000.00, c02, a08, "SOD");
-        Orders o08 = new Orders(2500.00, 400.00, c03, a04, "SOD");
-        Orders o09 = new Orders(500.00, 100.00, c23, a06, "SOD");
-        Orders o10 = new Orders(4000.00, 700.00, c07, a10, "SOD");
-        Orders o11 = new Orders(1500.00, 600.00, c08, a04, "SOD");
-        Orders o12 = new Orders(2500.00, 400.00, c25, a11, "SOD");
+        Order o01 = new Order(1000.00, 600.00, c13, a03, "SOD");
+        Order o02 = new Order(3000.00, 500.00, c19, a10, "SOD");
+        Order o03 = new Order(4500.00, 900.00, c07, a10, "SOD");
+        Order o04 = new Order(2000.00, 400.00, c16, a07, "SOD");
+        Order o05 = new Order(4000.00, 600.00, c22, a02, "SOD");
+        Order o06 = new Order(2000.00, 300.00, c12, a12, "SOD");
+        Order o07 = new Order(3500.00, 2000.00, c02, a08, "SOD");
+        Order o08 = new Order(2500.00, 400.00, c03, a04, "SOD");
+        Order o09 = new Order(500.00, 100.00, c23, a06, "SOD");
+        Order o10 = new Order(4000.00, 700.00, c07, a10, "SOD");
+        Order o11 = new Order(1500.00, 600.00, c08, a04, "SOD");
+        Order o12 = new Order(2500.00, 400.00, c25, a11, "SOD");
 
         agentrepos.save(a01);
         agentrepos.save(a02);

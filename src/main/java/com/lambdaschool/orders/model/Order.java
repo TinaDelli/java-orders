@@ -1,34 +1,33 @@
 package com.lambdaschool.orders.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long ordnum;
 
-    @Column(nullable = false)
     private double ordamount;
     private double advanceamount;
+    private  String ordescription;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "custcode",
                 nullable = false)
-    @JsonIgnoreProperties("custcode")
+    @JsonIgnore
     private Customer customer;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "agentcode",
                 nullable = false)
-    @JsonIgnoreProperties("agentcode")
+    @JsonIgnore
     private Agent agent;
-
-    private  String ordescription;
 
     public Order()
     {

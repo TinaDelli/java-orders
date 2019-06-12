@@ -41,7 +41,7 @@ public class Customer
     {
     }
 
-    public Customer(long custcode, String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, double outstandingamt, String phone, Agent agent)
+    public Customer(String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, double outstandingamt, String phone, Agent agent)
     {
         this.custcode = custcode;
         this.custname = custname;
