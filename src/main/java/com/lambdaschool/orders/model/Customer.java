@@ -27,8 +27,9 @@ public class Customer
     private double outstandingamt;
     private String phone;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "agentcode", nullable=false)
+    @JsonIgnoreProperties({"customer", "hibernateLazyInitializer"})
     private Agent agent;
 
     @OneToMany(mappedBy = "customer",

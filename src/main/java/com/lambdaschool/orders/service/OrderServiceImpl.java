@@ -221,6 +221,26 @@ public class OrderServiceImpl implements OrderService
         {
             currentCustomer.setGrade(customer.getGrade());
         }
+        if (customer.getOpeningamt() != 0)
+        {
+            currentCustomer.setOpeningamt(customer.getOpeningamt());
+        }
+        if (customer.getReceiveamt() != 0)
+        {
+            currentCustomer.setReceiveamt(customer.getReceiveamt());
+        }
+        if (customer.getPaymentamt() != 0)
+        {
+            currentCustomer.setPaymentamt(customer.getPaymentamt());
+        }
+        if (customer.getOutstandingamt() != 0)
+        {
+            currentCustomer.setOutstandingamt(customer.getOutstandingamt());
+        }
+        if (customer.getOpeningamt() != 0)
+        {
+            currentCustomer.setOpeningamt(customer.getOpeningamt());
+        }
         if (customer.getPhone() != null)
         {
             currentCustomer.setPhone(customer.getPhone());
