@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +27,13 @@ public class OrderController
         return new ResponseEntity<>(myList, HttpStatus.OK);
     }
 
-//    @GetMapping(value = )
+    @GetMapping(value = "/customer/name/{custname}",
+                produces = {"application/json"})
+    public ResponseEntity<?> getCustomerByName(
+            @PathVariable
+                String custname)
+    {
+        Customer c = orderService.findCustomerByName(custname);
+        return new ResponseEntity<>(c, HttpStatus.OK);
+    }
 }
