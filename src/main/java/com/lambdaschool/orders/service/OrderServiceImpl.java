@@ -8,9 +8,9 @@ import com.lambdaschool.orders.repos.CustomerRepository;
 import com.lambdaschool.orders.repos.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 
 @Service(value = "orderService")
@@ -84,7 +84,7 @@ public class OrderServiceImpl implements OrderService
         return agentrepos.save(newAgent);
     }
 
-    @Transactional
+  @Transactional
     @Override
     public Agent update(Agent agent, long id)
     {
@@ -128,9 +128,9 @@ public class OrderServiceImpl implements OrderService
     @Override
     public ArrayList<Customer> findAllCust()
     {
-        ArrayList<Customer> list = new ArrayList<>();
-        custrepos.findAll().iterator().forEachRemaining(list::add);
-        return list;
+        ArrayList<Customer> custlist = new ArrayList<>();
+        custrepos.findAll().iterator().forEachRemaining(custlist::add);
+        return custlist;
     }
 
     @Override

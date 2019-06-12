@@ -71,7 +71,7 @@ public class OrderController
             @PathVariable
             long custcode)
     {
-        orderService.delete(custcode);
+        orderService.deleteCust(custcode);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
